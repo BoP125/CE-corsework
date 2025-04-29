@@ -1,0 +1,14 @@
+CC = gcc
+CFLAGS = -std=c99 -Wall -Wextra
+
+OBJ = main.o util.o hazard.o alu.o
+TARGET = sim
+
+$(TARGET): $(OBJ)
+	$(CC) $(OBJ) -o $(TARGET)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(OBJ) $(TARGET)
